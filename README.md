@@ -12,6 +12,7 @@ Intro workshop to Tableau Public for Chicago Data Viz Community. Let's look at C
 ## Why trees?
 My passion is studying how the built environment impacts human health. Trees, which are amazing in nature, are integrally tied to the built environment in urban areas and have major impacts on our health. Learn more:
 
+- [Urban nature for health and wellbeing](http://www.vibrantcitieslab.com/resources/urban-nature-for-human-health-and-well-being/), U.S. Forest Service, February 2018
 - [Funding trees for health](https://global.nature.org/content/funding-trees-for-health), The Nature Conservancy, September 2017
 - [Why public health researchers are looking to urban trees](https://www.smithsonianmag.com/science-nature/why-public-health-researchers-are-looking-urban-trees-180960985/#oYT9cIpAYipFIF3Q.99), Smithsonian Magazine, November 2016
 - [The health benefits of trees](https://www.theatlantic.com/health/archive/2014/07/trees-good/375129/), The Atlantic, July 2014
