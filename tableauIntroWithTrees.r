@@ -41,7 +41,7 @@ for (town in towns) {  # pull selected data for each town
 
 allTowns <- allTowns[!is.na(allTowns$X__1), ]  # remove true na rows
 allTowns <- allTowns[allTowns$X__1 != "0", ]  # remove rows pulled from wrong table
-allTowns$X__1 <- tolower(allTowns$X__1)  # inconsistent case use leads to weird things later on
+allTowns$X__1 <- tolower(allTowns$X__1)  # inconsistent case use can lead to weird things later on
 allTowns <- allTowns[allTowns$X__1 != "total area", ]  # remove "total area" rows
 allTowns <- allTowns[allTowns$X__1 != "total", ]  # remove "total" rows
 allTowns <- allTowns[!duplicated(allTowns[1:2]), ]  # remove duplicate rows (not sure of original purpose)
@@ -76,20 +76,42 @@ n_occur$unsuitable <- 0
 nullset <- n_occur[,c(4:8)]
 
 
-# 5. create find data set
+# 5. add in zero rows (where certain land uses don't exist within certain towns)
 
-final <- allTowns[,c(1,10:13)]
-final <- rbind(final,nullset)
-final <- final[order(final$town, final$landUse),]
+fullSet <- allTowns[,c(1,10:13)]
+fullSet <- rbind(fullSet,nullset)
+fullSet <- fullSet[order(fullSet$town, fullSet$landUse),]
 
 # convert square feet to acres
 # round values to nearest hundreth of an acre
 sqft2acre <- (640 / 5280 / 5280)
 
-final$canopy <- round((final$canopy * sqft2acre), digits=2)
-final$plantable <- round((final$plantable * sqft2acre), digits=2)
-final$unsuitable <- round((final$unsuitable * sqft2acre), digits=2)
+fullSet$canopy <- round((fullSet$canopy * sqft2acre), digits=2)
+fullSet$plantable <- round((fullSet$plantable * sqft2acre), digits=2)
+fullSet$unsuitable <- round((fullSet$unsuitable * sqft2acre), digits=2)
 
+
+# 6. get data into long-form
+
+canopyOnly <- fullSet[,c(1:3)]  # subset data to include only 'town', 'landUse', and the specific canopy status acreage
+plantableOnly <- fullSet[,c(1:2,4)]
+unsuitableOnly <- fullSet[,c(1:2,5)]
+
+canopyOnly$status <- "canopy"  # add category variable to clarify canopy status
+plantableOnly$status <- "plantable"
+unsuitableOnly$status <- "unsuitable"
+
+names(canopyOnly)[names(canopyOnly) == "canopy"] <- "acres"  # rename the quanity variable in each subset to "acres"
+names(plantableOnly)[names(plantableOnly) == "plantable"] <- "acres"
+names(unsuitableOnly)[names(unsuitableOnly) == "unsuitable"] <- "acres"
+
+final <- rbind(canopyOnly,plantableOnly,unsuitableOnly)  # bring three subsets back together
+final <- final[,c(1,2,4,3)]  # reorder columns to acreage quantity is last
+
+
+# 7. output final csv file
+
+write.csv(final, file = "potentialCanopy.csv",row.names=FALSE)
 
 
 ## *name issues referenced above
@@ -106,8 +128,8 @@ final$unsuitable <- round((final$unsuitable * sqft2acre), digits=2)
 # 'McHenry' is a county (not to be confused with town called McHenry)
 # 'Will' is a county
 
-# Elmhurst file missing in folder ... this xls was recreated using data from chart.bmp in Elmhurst file
-# Westmont file missing in folder ... this xls was recreated using data from chart.bmp in Westmont file
+# Elmhurst file missing in folder ... this xls was estimated using data from chart.bmp in Elmhurst file
+# Westmont file missing in folder ... this xls was estimated using data from chart.bmp in Westmont file
 
 # Bolingbrook as 'Bolingbrooke' in file ... name corrected
 # Crystal Lawns as 'CrystalLawn' in file ... name corrected
