@@ -99,11 +99,11 @@ Tableau has rolled out some geographic mapping capabilities in the last few year
 
 19. Add a couple of filters that will come into play once we create a dashboard.
 
-   Drag 'Land Use' (under 'Dimensions') into the 'Filters' box. In the pop-up, select the 'Use all' or 'All' button, and click 'OK'.
-
    Drag 'Status' (under 'Dimensions') into the 'Filters' box. In the pop-up, select just 'plantable', and click 'OK'.
+
+   Drag 'Land Use' (under 'Dimensions') into the 'Filters' box. In the pop-up, select the 'Use all' or 'All' button, and click 'OK'. In the 'Filters' box, right-click 'Land Use' and select 'Show Filter'. This way users will be able to choose land use types will influence the color and size of each dot.
    
-20. Add some meaningful color. Drag 'Acres' (under 'Measures') over the 'Colors' icon in the 'Marks' box. Edit the colors to better see how much canopy availability differs by community.
+20. Add some meaningful color. Drag 'Acres' (under 'Measures') over the 'Colors' icon in the 'Marks' box. Edit the colors to better see how much canopy availability differs by community. This will keep the focus on where there is potential land to plant trees.
 
    Click the 'Color' icon in the 'Marks' box, then click the 'Edit Colors...' button.
 
@@ -114,6 +114,30 @@ Tableau has rolled out some geographic mapping capabilities in the last few year
 21. On the lower left, right-click the `Sheet 2` tab and click 'Rename'. Type `Plantable Acreage by Community`.
 
 ### Create dashboard
+
+22. On the lower left, just to the right of your two worksheet tabs, there are three icons. Click the middle icon, which includes a 2x2 grid and a plus sign, to create a new dashboard.
+23. Notice that for dashboards the left panel has different components than you saw previously for the worksheets.
+24. Add your two worksheets to this dashboard.
+
+   From the left-hand panel, under 'Sheets', drag `Plantable Space Percentage` to the center where it says 'Drop sheets here'.
+
+   From the same place, drag `Plantable Acreage by Community` to the very bottom of the center panel, over the newly placed bar chart.
+
+25. Define that you want to filter the dashboard by community.
+
+   Click on the map, and notice to the upper right of the map there are now several icons including a funnel-shaped filter icon. Click it.
+   
+   Test the filter by clicking one of the dots on the map. It should gray-out all the other dots and filter the top bar chart so you can see plantable space percentage by land use type for just that community.
+   
+26. Drag the 'Land Use' filter list to the right side of the map. Then, drag the 'Acres' legend component to below the 'Land Use' filter.
+
+## Save your dashboard to the interwebs
+
+27. Under 'File', select 'Save to Tableau Public as...'
+
+28. Sign into your Tableau Public account.
+
+29. It may take a few minutes to upload your dashboard to the server, but once there it will have a unique URL that you can share.
 
 
 ## Tree data origin
