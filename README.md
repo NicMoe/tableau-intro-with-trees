@@ -39,11 +39,11 @@ My passion is studying how the built environment impacts human health. Trees, wh
    
    Sheet, dashboard, and story
 
-### Create first sheet
+### Create first worksheet
 
 This sheet will help us recreate the 'Plantable Space Percentage' charts that CRTI included for each Chicago area municipality on their '[Urban Forest Canopy Summary](http://chicagorti.org/CanopySummaries)' documents (on page 4 for most of these PDF's).
 
-7. On the upper right is a tab with a chart icon that says 'Show Me'. Open this to reveal common chart types available for you to build and what minimum data requirements exist for each.
+7. On the upper right is a tab with a chart icon that says 'Show Me'. Click this icon to reveal common chart types available for you to build and what minimum data requirements exist for each.
 8. We want a 'Stacked Bar' chart, so we need at least one 'Dimension' and at least one 'Measure'. The chart we are trying to reproduce has land use on the x-axis (columns) and stacks acreage estimates for each along the y-axis (rows).
 
    From under 'Dimensions' on the left panel, drag 'Land Use' just to the right of 'Columns' in the upper middle portion of the middle panel.
@@ -56,7 +56,7 @@ This sheet will help us recreate the 'Plantable Space Percentage' charts that CR
 
    Click on 'Color' in the 'Marks' box. Click 'Edit Colors…' in the pop-up box: the hex codes used in the [PDF](http://chicagorti.org/CanopySummaries)'s are `#dddddd` for 'Unsuitable', `#aed000` for 'Plantable', and `#006600` for 'Canopy'. Click 'OK'.
 
-   To change the ordering to match the chart, mouseover the blue 'Status' within the 'Marks' box and click on the down arrow. Click 'Sort…', sort by 'Manual sort', and modify to reflect [PDF](http://chicagorti.org/CanopySummaries) charts ('Unsuitable' on top, 'Canopy' on bottom).
+   To change the ordering to match the chart, mouseover the blue 'Status' within the 'Marks' box and click on the down arrow. Click 'Sort…', sort by 'Manual sort', and modify to reflect [PDF](http://chicagorti.org/CanopySummaries) chart order ('Unsuitable' on top, 'Canopy' on bottom).
 
 10. Add a filter. Drag 'Town' (under 'Dimensions') into the 'Filters' box. In the pop-up, select the 'Use all' or 'All' button, and click 'OK'. This filter will come into play once we create a dashboard.
 11. Create a calculated field for use in a tooltip.
@@ -78,6 +78,42 @@ This sheet will help us recreate the 'Plantable Space Percentage' charts that CR
    Toward the top of your sheet, it should be labelled `Sheet 1`. Right click that and select 'Hide label'.
 
    Do the same with the smaller column label that says 'Land use'.
+
+14. On the lower left, right-click the `Sheet 1` tab and click 'Rename'. Type `Plantable Space Percentage`.
+
+### Create map
+
+Tableau has rolled out some geographic mapping capabilities in the last few years. Let's see how tree canopy potential varies across the Chicago metropolitan area.
+
+15. On the lower left, just to the right of the `Plantable Space Percentage` tab, there's an icon that includes a styled bar chart and a plus sign. Click that icon to create a new worksheet.
+16. From under 'Dimensions' on the left panel, drag 'Town' just to the middle of the center panel. It may take a few seconds to associate the field data to pre-loaded location data.
+17. Notice that there are now blue dots placed over a map of the central United States. Most of the dots are near Chicago, but there are a few appearing in far-flung states because our 'Town' field doesn't specify which state this data set is from so Tableau is doing the best it can to guess. Let's remove the outlying data points for now, as they aren't really going to work for our map.
+
+   In Minnesota, there is a blue dot called 'ForestLake'. Right click it and 'Exclude' it from the map. Note that the data rows for 'ForestLake' are not deleted, just removed for this worksheet.
+
+   On the upper left corner of your map, there is a right-pointing arrow icon. Click that and select the 'Pan' icon (four connected arrows pointing to the cardinal directions). Move around to Texas to exclude 'Knollwood' and to New York to exclude 'Chemung'.
+
+18. Pan over to Chicago and zoom in so you can see all the dots over Chicago area communities. You'll notice that not all communities were appropriately associated with the map since their names are two generic and Tableau didn't know where to place them (sorry, Plainfield). Fortunately, we still retain about half the towns which should be enough for some geographic exploration.
+
+   On the lower right corner of your map, you'll see '161 unknown' - these are the communities with generic names. Click that button and in the pop-up, select 'Filter data' to tell Tableau to ignore these locations.
+
+19. Add a couple of filters that will come into play once we create a dashboard.
+
+   Drag 'Land Use' (under 'Dimensions') into the 'Filters' box. In the pop-up, select the 'Use all' or 'All' button, and click 'OK'.
+
+   Drag 'Status' (under 'Dimensions') into the 'Filters' box. In the pop-up, select just 'plantable', and click 'OK'.
+   
+20. Add some meaningful color. Drag 'Acres' (under 'Measures') over the 'Colors' icon in the 'Marks' box. Edit the colors to better see how much canopy availability differs by community.
+
+   Click the 'Color' icon in the 'Marks' box, then click the 'Edit Colors...' button.
+
+   In the pop-up, from the 'Palette' pulldown, choose 'Temperature Diverging'. Select the 'Reversed' checkbox and the 'Use Full Color Range' checkbox.
+
+   From the lower right of the pop-up, click the 'Advanced >>' button. Select the 'Center:" checkbox and type `10,000`. 
+
+21. On the lower left, right-click the `Sheet 2` tab and click 'Rename'. Type `Plantable Acreage by Community`.
+
+### Create dashboard
 
 
 ## Tree data origin
