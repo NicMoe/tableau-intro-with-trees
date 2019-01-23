@@ -17,6 +17,16 @@ My passion is studying how the built environment impacts human health. Trees, wh
 - [Why public health researchers are looking to urban trees](https://www.smithsonianmag.com/science-nature/why-public-health-researchers-are-looking-urban-trees-180960985/#oYT9cIpAYipFIF3Q.99), Smithsonian Magazine, November 2016
 - [The health benefits of trees](https://www.theatlantic.com/health/archive/2014/07/trees-good/375129/), The Atlantic, July 2014
 
+## A few notes about Tableau Public
+
+1. Tableau has several products, from large-scale enterprise solutions down to freeware Tableau Public. A major difference between the enterprise solution versus the free version is that with the free Tableau Public, **you must save your workbook online and any data you use will be publically accessible**. Registered [nonprofit organizations](https://www.tableau.com/foundation/license-donations) and [students](https://www.tableau.com/academic/students) are permitted free licenses for Tableau's more secure products.
+
+2. Tableau offers excellent data exploration and visualization ability compared to Excel's charts and pivot tables. As well, it is quicker to learn than more flexible tools such as R's ggplot2 or D3.js.
+
+3. Tableau is super ornery about data structure. Its worksheets can only handle data presented in long-format tables and doesn't know what to do with wide-format data. I would recommend [reshaping your data](https://www.youtube.com/watch?v=R1WsOmM_grU) into long-format using Excel, R, or any appropriate tool of your choice prior to importing anything into Tableau. For this workshop, I took human-readable wide format tables and restructured them into one long-format table using R. The code can be found in this GitHub repo.
+
+4. Note that there is no standard version control for Tableau. If you need to retain an old version of a workbook, make sure to save any new version using a unique name to avoid any overwrite.
+
 ## Let's get started!
 
 ### Download Tableau Public and import data
@@ -33,11 +43,11 @@ My passion is studying how the built environment impacts human health. Trees, wh
 5. On the lower left side of the window there are several tabs. Click `Sheet 1`.
 6. What all do we see here?
 
-   Distinction between dimensions and measures
+   On the left panel we see your variables distinguished as 'dimensions', which are usually categorical and Tableau assumes are independent variables, versus 'measures', which are always numerical and Tableau perceives as dependent variables.
 
-   Run through all the top pull downs
+   Familiarize yourself with all the pull down options in the title bar: 'File', 'Data', 'Worksheet', etc.
    
-   Sheet, dashboard, and story
+   There are three small icons on the bottom left: 'worksheet' is a space to set up a single chart or table; a 'dashboard' is a space to combine multiple worksheets into a single interface; and 'story' is a series of dashboards that can be used like an interactive presentation. We will begin your project with an initial worksheet.
 
 ### Create first worksheet
 
@@ -54,7 +64,7 @@ This sheet will help us recreate the 'Plantable Space Percentage' charts that CR
 
 9. Let's fix the colors and the ordering of the canopy suitability status to resemble the static [PDF](http://chicagorti.org/CanopySummaries) charts.
 
-   Click on 'Color' in the 'Marks' box. Click 'Edit Colors…' in the pop-up box: the hex codes used in the [PDF](http://chicagorti.org/CanopySummaries)'s are `#dddddd` for 'Unsuitable', `#aed000` for 'Plantable', and `#006600` for 'Canopy'. For Mac users, you will need to choose the second tab within the 'Colors' pop-up, select 'RGB Sliders' in the dropdown, and input hex color values in the appropriate box. Click 'OK', and set the correct color for all three categories.
+   Click on 'Color' in the 'Marks' box. Click 'Edit Colors…' in the pop-up box, and one-by-one double-click each ccategory you want to change the color of: the hex codes used in the [PDF](http://chicagorti.org/CanopySummaries)'s are `#dddddd` for 'Unsuitable', `#aed000` for 'Plantable', and `#006600` for 'Canopy'. For Mac users, you will need to choose the second tab within the 'Colors' pop-up, select 'RGB Sliders' in the dropdown, and input hex color values in the appropriate box. Click 'OK', and set the correct color for all three categories.
 
    To change the ordering to match the chart, mouseover the blue 'Status' within the 'Marks' box and click on the down arrow. Click 'Sort…', sort by 'Manual sort', and modify to reflect [PDF](http://chicagorti.org/CanopySummaries) chart order ('Unsuitable' on top, 'Canopy' on bottom).
 
@@ -69,7 +79,7 @@ This sheet will help us recreate the 'Plantable Space Percentage' charts that CR
 
 12. Edit the tooltip.
 
-   Towards the 'Tooltip' icon in the 'Marks' box in the middle of your screen, drag both 'Town' from 'Dimensions' and 'Square Miles' from 'Measures'. They should appear at the bottom of the 'Marks' box as `ATTR(Town)` and `SUM(Square ..`.
+   Towards the 'Tooltip' icon in the 'Marks' box in the middle of your screen, drag both 'Town' from 'Dimensions' and 'Square Miles' from 'Measures', one at a time. They should appear at the bottom of the 'Marks' box as `ATTR(Town)` and `SUM(Square ..`.
 
    Now, click the 'Tooltip' icon and a popup will appear. Edit it to create a sentence structure: `In <ATTR(Town)>, there are <SUM(Acres)> acres (<SUM(Square Miles)> square miles) of <Status> land within areas designated as <Land Use> land use.`
    
@@ -138,7 +148,7 @@ Tableau has rolled out some great geographic mapping capabilities in the last fe
    
 27. If you mouse over one of the bars in the bar chart, notice that the tooltip now gives information specific to the selected community. As well, click '(All)' in the 'Land Use' filter to deselect each land use type, then one-by-one see how each checkbox influences the map. Where has the most canopy potential for cemetary land? What about for golf zoned areas?
 
-## Save your dashboard to the interwebs
+### Save your dashboard to the interwebs
 
 28. Under 'File', select 'Save to Tableau Public as...'
 
@@ -146,6 +156,8 @@ Tableau has rolled out some great geographic mapping capabilities in the last fe
 
 30. It may take a few minutes to upload your dashboard to the server, but once there it will have a unique URL that you can share.
 
+## Keep learning
+Check out Tableau's [Viz of the Day Gallery](https://public.tableau.com/en-us/s/gallery) which shows some spectacular uses of Tableau Public. The coolest part of all Tableau Public workbooks is that they are downloadable (via the lower right-hand download icon on every Tableau Public dashboard) allowing you to see how users structured their data as well as their worksheets, dashboards, and stories.
 
 ## Tree data origin
 There were a few data sources I considered for this workshop:
