@@ -12,14 +12,15 @@ Intro workshop to Tableau Public for Chicago Data Viz Community. Let's look at C
 ## Why trees?
 My passion is studying how the built environment impacts human health. Trees, which are amazing in nature, are integrally tied to the built environment in urban areas and have major impacts on our health. Learn more:
 
-- [Urban nature for health and wellbeing](http://www.vibrantcitieslab.com/resources/urban-nature-for-human-health-and-well-being/), U.S. Forest Service, February 2018
-- [Funding trees for health](https://global.nature.org/content/funding-trees-for-health), The Nature Conservancy, September 2017
-- [Why public health researchers are looking to urban trees](https://www.smithsonianmag.com/science-nature/why-public-health-researchers-are-looking-urban-trees-180960985/#oYT9cIpAYipFIF3Q.99), Smithsonian Magazine, November 2016
 - [The health benefits of trees](https://www.theatlantic.com/health/archive/2014/07/trees-good/375129/), The Atlantic, July 2014
+- [Why public health researchers are looking to urban trees](https://www.smithsonianmag.com/science-nature/why-public-health-researchers-are-looking-urban-trees-180960985/#oYT9cIpAYipFIF3Q.99), Smithsonian Magazine, November 2016
+- [Funding trees for health](https://global.nature.org/content/funding-trees-for-health), The Nature Conservancy, September 2017
+- [Urban nature for health and wellbeing](http://www.vibrantcitieslab.com/resources/urban-nature-for-human-health-and-well-being/), U.S. Forest Service, February 2018
+- [Why Detroit residents pushed back against tree-planting](https://www.citylab.com/environment/2019/01/detroit-tree-planting-programs-white-environmentalism-research/579937/), CityLab, January 2019
 
 ## A few notes about Tableau Public
 
-1. Tableau has several products, from large-scale enterprise solutions down to freeware Tableau Public. A major difference between the enterprise solution versus the free version is that with the free Tableau Public, **you must save your workbook online and any data you use will be publically accessible**. Registered [nonprofit organizations](https://www.tableau.com/foundation/license-donations) and [students](https://www.tableau.com/academic/students) are permitted free licenses for Tableau's more secure products.
+1. Tableau has [several products](https://www.tableau.com/products), from large-scale enterprise solutions down to freeware Tableau Public. A major difference between the enterprise solution versus the free version is that with the free Tableau Public, **you must save your workbook online and any data you use will be publically accessible**. Registered [nonprofit organizations](https://www.tableau.com/foundation/license-donations) and [students](https://www.tableau.com/academic/students) are permitted free licenses for Tableau's more secure products.
 
 2. Tableau offers excellent data exploration and visualization ability compared to Excel's charts and pivot tables. As well, it is quicker to learn than more flexible tools such as R's ggplot2 or D3.js.
 
@@ -34,7 +35,7 @@ My passion is studying how the built environment impacts human health. Trees, wh
 1. Download the latest version of [Tableau Public](https://public.tableau.com/en-us/s/) for Windows or Mac. This should be version 2018.3.2. Once downloaded, open the program.
 2. Fork this GitHub repo and save `potentialCanopy.csv` in an accessible place. Alternatively, [copy the data](https://raw.githubusercontent.com/NicMoe/tableau-intro-with-trees/master/potentialCanopy.csv) and save that document as `potentialCanopy.csv`.
 3. In Tableau Public, on the left side of the screen there are file and server types listed that you can connect to. Select 'Text file' and navigate to where you saved the `potentialCanopy.csv` file.
-4. A data preview will show you how Tableau is reading your data file. Do the field types look correct? Does the displayed data look right? Let's change the 'Town' field from a 'string' to the geographic role of 'city'.
+4. A data preview will show you how Tableau is reading your data file. Do the field types look correct? Does the displayed data look right? Let's change the 'Town' field from a 'string' to the geographic role of 'city' so it will be ready to map later.
 
    Above 'Town', click on the blue 'Abc'.
 
@@ -150,9 +151,9 @@ Tableau has rolled out some great geographic mapping capabilities in the last fe
 
 ### Save your dashboard to the interwebs
 
-28. Under 'File', select 'Save to Tableau Public as...'
+28. Under 'File', select 'Save to Tableau Public as...'.
 
-29. Sign into your Tableau Public account.
+29. Sign into your Tableau Public account. To avoid overwriting a previous version, make sure to give the new version of your workbook a unique name.
 
 30. It may take a few minutes to upload your dashboard to the server, but once there it will have a unique URL that you can share.
 
@@ -162,5 +163,5 @@ Check out Tableau's [Viz of the Day Gallery](https://public.tableau.com/en-us/s/
 ## Tree data origin
 There were a few data sources I considered for this workshop:
 
-- Chicago Region Trees Initiative has their [Municipal Canopy Summary](http://chicagorti.org/CanopySummaries) which covers each municipality in the 7-county area, plus parts of Chicago. It includes estimates for percent of land covered by trees, broken down by general land uses, as well as estimates of plantable space. Thanks to Lindsay Darling with the Morton Arboretum, this is the data set I selected for this workshop, which can be found [here](https://github.com/NicMoe/tableau-intro-with-trees/blob/master/potentialCanopy.csv)
+- Chicago Region Trees Initiative has their [Municipal Canopy Summary](http://chicagorti.org/CanopySummaries) which covers each municipality in the 7-county area, plus parts of Chicago. It includes estimates for percent of land covered by trees, broken down by general land uses, as well as estimates of plantable space. Thanks to Lindsay Darling with the Morton Arboretum, this is the data set I selected for this workshop, which can be found [here](https://github.com/NicMoe/tableau-intro-with-trees/blob/master/potentialCanopy.csv).
 - The USDA Forest Service has data on tree Censuses conducted within the [City of Chicago in 2007](https://www.nrs.fs.fed.us/data/urban/state/city/?city=15) and the [7-county region in 2010](https://www.nrs.fs.fed.us/data/urban/state/city/?city=26). These data sets contain count estimates by tree species, estimates of their estimates of their carbon impact, and economic value. There are also estimates of canopy cover to parasite susceptibility, by type of parasite and land use.
