@@ -12,8 +12,8 @@ Intro workshop to Tableau Public for Chicago Data Viz Community. Let's look at C
 ## First steps
 1. Download the latest version of [Tableau Public](https://public.tableau.com/en-us/s/) for Windows or Mac. This should be version 2018.3.2. Once downloaded, open the program.
 2. Fork this GitHub repo and save `potentialCanopy.csv` in an accessible place. Alternatively, [copy the data](https://raw.githubusercontent.com/NicMoe/tableau-intro-with-trees/master/potentialCanopy.csv) and save that document as `potentialCanopy.csv`.
-3. Join the Chicago Data Viz Community [Slack](bit.ly/ChiDataVizSlackInvite)!
-4. Take the Chicago Data Viz Community [Survey](bit.ly/ChiDataVizSurvey)!
+3. Join the Chicago Data Viz Community [Slack](https://bit.ly/ChiDataVizSlackInvite)!
+4. Take the Chicago Data Viz Community [Survey](https://bit.ly/ChiDataVizSurvey)!
 
 ## Why trees?
 My passion is studying how the built environment impacts human health. Trees, which are amazing in nature, are integrally tied to the built environment in urban areas and have major impacts on our health. I've got a whole Facebook page dedicated to this topic called [Well Placed](https://www.facebook.com/WellPlacedPage/). Learn more about trees and health:
